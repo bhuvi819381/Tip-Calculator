@@ -1,45 +1,38 @@
-import React from 'react';
-
 interface ResultProps {
-  tipAmount: number;
-  total: number;
-  reset: () => void;
+  tip: () => number;
+  total: () => number;
+  resetForm: () => void;
 }
 
-const Result: React.FC<ResultProps> = ({ tipAmount, total, reset }) => {
+const Result: React.FC<ResultProps> = ({tip, total, resetForm}) => {
   return (
-    <section
-      aria-labelledby="result-title"
-      className="bg-Very-dark-cyan text-white p-6 rounded-lg flex flex-col justify-between"
-    >
-      <h2 id="result-title" className="sr-only">
-        Calculation Results
-      </h2>
-
-      {/* Tip Amount */}
-      <div className="space-y-4">
-        <div className="flex justify-between text-xl">
-          <p>Tip Amount <span className="text-sm">/ person</span></p>
-          <p className="text-2xl">${tipAmount.toFixed(2)}</p>
-        </div>
-
-        {/* Total */}
-        <div className="flex justify-between text-xl">
-          <p>Total <span className="text-sm">/ person</span></p>
-          <p className="text-2xl">${total.toFixed(2)}</p>
-        </div>
-      </div>
-
-      {/* Reset Button */}
-      <button
-        onClick={reset}
-        className="mt-6 bg-primary text-veryDarkCyan text-xl p-3 rounded-lg hover:bg-lightGrayishCyan focus:outline-none focus:ring-2 focus:ring-lightGrayishCyan"
-        aria-label="Reset all values"
-      >
-        RESET
-      </button>
-    </section>
-  );
-};
-
-export default Result;
+    <section className="bg-Very-dark-cyan border-greem-300 rounded-[15px] border-2 p-[0.5rem] sm:p-[2rem] md:w-[413px]">
+          <div className="mt-6 ml-2 flex justify-between md:flex-row">
+            <div>
+              <p className="text-White">Tip Amount</p>
+              <span className="text-Grayish-cyan text-sm">/ Person</span>
+            </div>
+            <p className="text-Strong-cyan text-2xl sm:text-3xl md:text-5xl">
+              ${tip().toFixed(2)}
+            </p>
+          </div>
+          <div className="mt-12 flex justify-between md:flex-row">
+            <div>
+              <p className="text-White">Total</p>
+              <span className="text-Grayish-cyan text-sm">/ Person</span>
+            </div>
+            <p className="text-Strong-cyan text-2xl sm:text-3xl md:text-5xl">
+              ${total().toFixed(2)}
+            </p>
+          </div>
+          <button
+            type="reset"
+            className="text-Grayish-cyan bg-Dark-grayish-cyan mt-32 h-12 w-full rounded-md text-center uppercase"
+            onClick={resetForm}
+          >
+            Reset
+          </button>
+        </section>
+  )
+}
+export default Result
