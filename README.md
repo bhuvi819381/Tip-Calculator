@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/bhuvi819381/Tip-Calculator]
-- Live Site URL: [https://bhuvi819381.github.io/Tip-Calculator]
+- Live Site URL: [https://tipcalculator81.netlify.app/]
 
 ## My process
 
